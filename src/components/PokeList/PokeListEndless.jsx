@@ -64,7 +64,7 @@ export function PokeListEndless() {
 			) : (
 				<p>errror</p>
 			)}
-			<p autoFocus>test</p>
+			<p>test</p>
 		</div>
 	);
 }
