@@ -2,7 +2,6 @@ import { useState, useEffect, Children } from "react";
 import { PokeList } from "./components/PokeList/PokeList";
 import { PokeListEndless } from "./components/PokeList/PokeListEndless";
 import "./App.css";
-import { Infinite } from "./components/PokeList/Infinite";
 
 function App() {
 	function toTop() {
