@@ -1,0 +1,10 @@
+.to-top {
+	position: sticky;
+	display: flex;
+	justify-content: end;
+	top: 100px;
+}
+/* html {
+	scroll-behavior: smooth;
+}
+ */
