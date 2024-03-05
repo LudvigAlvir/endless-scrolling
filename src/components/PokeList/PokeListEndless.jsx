@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Pokemon } from "../Pokemon/Pokemon";
+import { Outlet } from "react-router-dom";
 
 export function PokeListEndless() {
 	const [data, setData] = useState(null);
@@ -9,7 +10,6 @@ export function PokeListEndless() {
 	const [url, setUrl] = useState("https://pokeapi.co/api/v2/pokemon");
 
 	useEffect(() => {
-		setLoading(true);
 		async function getData() {
 			try {
 				const res = await fetch(url);
@@ -27,8 +27,8 @@ export function PokeListEndless() {
 		getData();
 	}, [url]);
 	function handleScroll(e) {
-		e.preventDefault();
-		e.stopPropagation();
+		/* e.preventDefault();
+		e.stopPropagation(); */
 		const sY = window.scrollY;
 		const dH = document.body.clientHeight;
 		const wH = window.innerHeight;
@@ -53,18 +53,25 @@ export function PokeListEndless() {
 	}
 
 	return (
-		<div>
-			{data ? (
-				pokemons.map((pokemon) => (
-					<Pokemon
-						pokemon={pokemon}
-						key={pokemon.name}
-					/>
-				))
-			) : (
-				<p>errror</p>
-			)}
-			<p>test</p>
+		<div className="pokemon-container">
+			<div>
+				<h2>All pokemon</h2>
+				{data ? (
+					pokemons.map((pokemon) => (
+						<Pokemon
+							pokemon={pokemon}
+							key={pokemon.name}
+						/>
+					))
+				) : (
+					<p>errror</p>
+				)}
+				{loading && <p>loading</p>}
+			</div>
+			<div>
+				<h2>Info</h2>
+				<Outlet />
+			</div>
 		</div>
 	);
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Pokemon({ pokemon }) {
 	function PokemonInfo({ info }) {
@@ -34,10 +35,13 @@ export function Pokemon({ pokemon }) {
 	return (
 		<div key={pokemon.name}>
 			<p>{pokemon.name}</p>
-			<img
-				src={src}
-				alt={"Image of " + pokemon.name}
-			/>
+			<Link to={"/pokemon/" + id}>
+				<img
+					src={src}
+					alt={"Image of " + pokemon.name}
+				/>
+			</Link>
+
 			{data ? (
 				<PokemonInfo info={data} />
 			) : (

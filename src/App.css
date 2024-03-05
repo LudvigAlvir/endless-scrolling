@@ -8,3 +8,11 @@
 	scroll-behavior: smooth;
 }
  */
+.pokemon-container {
+	display: flex;
+	justify-content: space-evenly;
+}
+.fixed {
+	position: fixed;
+	top: 35%;
+}
